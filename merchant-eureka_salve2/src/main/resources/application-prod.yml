@@ -1,0 +1,4 @@
+# 关闭注册中心的保护机制 只能在dev环境开启 prod环境关闭
+eureka:
+  server:
+    enable-self-preservation: true

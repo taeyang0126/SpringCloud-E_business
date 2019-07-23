@@ -21,3 +21,7 @@ eureka:
 spring:
   application:
     name: register-center
+  # 设置配置文件生效-开发环境
+  profiles:
+    active: dev
+

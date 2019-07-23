@@ -1,0 +1,11 @@
+eureka:
+  client:
+    service-url:
+      # 将此服务注册到三节点中任一一个服务器上
+      defaultZone: http://register-salve1:8762/eureka/, http://register-salve2:8763/eureka/, http://register-master:8761/eureka/
+  instance:
+    hostname: client
+
+spring:
+  application:
+    name: client
