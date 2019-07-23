@@ -1,0 +1,23 @@
+# 端口
+server:
+  port: 8762
+
+eureka:
+  instance:
+    # 当前实例的主机名称 必须指定 且各个节点不一样
+    hostname: register-salve1
+    # 表示注册到eureka服务上的不是IP地址 这里因为是单机器三节点集群 所以这里设置为false 否则副本节点无法使用；生产上一般为true，表示使用IP注册
+    prefer-ip-address: false
+  client:
+    # 检索服务选项，当设置为True(默认值)时，会进行服务检索,注册中心不负责检索服务。
+    fetch-registry: false
+    # 服务注册中心也会将自己作为客户端来尝试注册自己,为true（默认）时自动生效  高可用时设置为true 将此注册到其他server上
+    register-with-eureka: true
+    service-url:
+      # 是一个默认的注册中心地址。配置该选项后，可以在服务中心进行注册 不能使用localhost ！！需使用域名 这里将域名与本机ip进行了绑定
+      defaultZone: http://register-master:8761/eureka/, http://register-salve2:8763/eureka/
+
+#  名称：注册中心 名称相同的注册中心在eureka可视化界面下会显示在一起 ip地址分割 显得更为清晰 高可用时必须一致
+spring:
+  application:
+    name: register-center

@@ -9,6 +9,9 @@
         <module>merchant-restapi</module>
         <module>merchant-client</module>
         <module>merchant-web</module>
+        <module>merchant-eureka_master</module>
+        <module>merchant-eureka_salve1</module>
+        <module>merchant-eureka_salve2</module>
     </modules>
 
     <!--使用父级配置 表明此是springboot项目 且指定了版本号-->
@@ -72,14 +75,10 @@
     <!--使用统一的构建插件配置 如果模块中没有相关的构建配置 将默认使用此配置-->
     <build>
         <plugins>
+            <!--spring boot打包插件 可将maven项目打包为springboot项目 启动时使用java -jar xxx.jar-->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
             <!--测试插件surefire的配置忽略了在工程构建时对测试用例的调用-->
